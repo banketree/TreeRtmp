@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TreeRtmp.iml" filepath="$PROJECT_DIR$/TreeRtmp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/corertmp/corertmp.iml" filepath="$PROJECT_DIR$/corertmp/corertmp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test/app.iml" filepath="$PROJECT_DIR$/Test/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TreeTransfer.iml" filepath="$PROJECT_DIR$/TreeTransfer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coretransfer/coretransfer.iml" filepath="$PROJECT_DIR$/coretransfer/coretransfer.iml" />
     </modules>
   </component>
 </project>

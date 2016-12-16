@@ -1,1 +1,1 @@
-include ':app', ':corertmp'
+include ':Test', ':coretransfer'
