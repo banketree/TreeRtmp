@@ -11,24 +11,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
-    private byte[] adjustVolume(byte[] audioSamples, float volume) {    //0-1
-        if (volume >= 1)
-            volume = 1;
-        if (volume <= 0)
-            volume = 0;
-        byte[] array = new byte[audioSamples.length];
-        for (int i = 0; i < array.length; i += 2) {
-            // convert byte pair to int
-            int audioSample = (int) ((audioSamples[i + 1] & 0xff) << 8) | (audioSamples[i] & 0xff);
-
-            audioSample = (int) (audioSample * volume);
-
-            // convert back
-            array[i] = (byte) audioSample;
-            array[i + 1] = (byte) (audioSample >> 8);
-
-        }
-        return array;
-    }
+    /* stun.ekiga.net
+    *stun.fwdnet.net
+    * stun.ideasip.com
+    * stun01.sipphone.com (no DNS SRV record)
+            * stun.softjoys.com (no DNS SRV record)
+            * stun.voipbuster.com (no DNS SRV record)
+            * stun.voxgratia.org (no DNS SRV record)
+            * stun.xten.com
+    * stunserver.org see their usage policy
+    * stun.sipgate.net:10000
+    */
 }
