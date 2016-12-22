@@ -2,33 +2,37 @@ package com.fuzhouxiu.treertmp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.fuzhouxiu.coretransfer.net.core.IpAddress;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private TextView mTestTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mTestTextView = (TextView) findViewById(R.id.TextView_test);
+        findViewById(R.id.Button_test).setOnClickListener(this);
     }
 
-
-    private byte[] adjustVolume(byte[] audioSamples, float volume) {    //0-1
-        if (volume >= 1)
-            volume = 1;
-        if (volume <= 0)
-            volume = 0;
-        byte[] array = new byte[audioSamples.length];
-        for (int i = 0; i < array.length; i += 2) {
-            // convert byte pair to int
-            int audioSample = (int) ((audioSamples[i + 1] & 0xff) << 8) | (audioSamples[i] & 0xff);
-
-            audioSample = (int) (audioSample * volume);
-
-            // convert back
-            array[i] = (byte) audioSample;
-            array[i + 1] = (byte) (audioSample >> 8);
-
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.Button_test) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    IpAddress.setLocalIpAddress();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mTestTextView.setText(IpAddress.localIpAddress);
+                        }
+                    });
+                }
+            }).start();
         }
-        return array;
     }
 }
