@@ -43,10 +43,6 @@ import java.nio.channels.Channel;
  */
 public final class OSNetworkSystem {
 
-    static {
-        System.loadLibrary("OSNet");
-    }
-
     // ----------------------------------------------------
     // Class Variables
     // ----------------------------------------------------

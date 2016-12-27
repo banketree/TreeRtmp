@@ -418,5 +418,4 @@ public class PlainDatagramSocketImpl extends DatagramSocketImpl {
         packet.setAddress(connectedAddress);
         packet.setPort(connectedPort);
     }
-    
 }
